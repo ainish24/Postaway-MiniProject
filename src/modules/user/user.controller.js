@@ -1,6 +1,14 @@
 import userModel from './user.model.js'
 import jwt from 'jsonwebtoken'
 
+const getAllUsers=(req,res)=>{
+    const users = userModel.getAllUsers()
+    res.status(200).json({
+        success:true,
+        data:users
+    })
+}
+
 const signup=(req,res)=>{
     const data = req.body
     const user=userModel.addUser(data)
@@ -31,4 +39,4 @@ const signin=(req,res)=>{
     }
 } 
 
-export default{signup, signin}
+export default{getAllUsers,signup, signin}
