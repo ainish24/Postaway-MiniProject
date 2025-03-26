@@ -1,11 +1,13 @@
 import multer from "multer"
 import path from 'path'
 
-export const storage=multer.diskStorage({
+const storage=multer.diskStorage({
     destination:function(req,file,cb){
-        cb(null, path.join(__dirname,'../../public/uploads'))
+        cb(null, path.join(path.resolve(),'public/uploads'))
     },
     filename:function(req,file,cb){
         cb(null, file.originalname)
     }
 })
+
+export const upload = multer({storage:storage})
