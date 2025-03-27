@@ -5,6 +5,10 @@ import { customErrorHandler } from "../../middlewares/errorHandlerMiddleware.js"
 const getLikesById=(req,res)=>{
     const postId=req.params.postId
     const likes = likeModel.getLikesById(postId)
+    const isPostPresent=postModel.isPostPresent(postId)
+    if(!isPostPresent || isPostPresent.length==0){
+        throw new customErrorHandler(404,"Post with given ID doesn't exist!")
+    }
     if(!likes || likes.length==0){
         throw new customErrorHandler(404,"No likes for the given post!")
     }
@@ -18,6 +22,10 @@ const toggleLikes=(req,res)=>{
     const userId=req.user.id
     const postid=req.params.postId
     const isExist=postModel.isPostPresent(postid)
+    const isPostPresent=postModel.isPostPresent(postid)
+    if(!isPostPresent || isPostPresent.length==0){
+        throw new customErrorHandler(404,"Post with given ID doesn't exist!")
+    }
     if(!isExist || isExist.length==0){
         throw new customErrorHandler(404,"No likes for the given post!")
     }

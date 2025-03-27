@@ -1,5 +1,6 @@
 import userModel from './user.model.js'
 import jwt from 'jsonwebtoken'
+import { customErrorHandler } from '../../middlewares/errorHandlerMiddleware.js'
 
 const getAllUsers=(req,res)=>{
     const users = userModel.getAllUsers()
