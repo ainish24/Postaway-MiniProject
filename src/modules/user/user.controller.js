@@ -32,10 +32,7 @@ const signin=(req,res)=>{
             data:user
         })
     }else{
-        return res.status(401).json({
-            success:false,
-            message:"user with given credentials not found"
-        })
+        throw new customErrorHandler(401,"User with given credentials not found!")
     }
 } 
 

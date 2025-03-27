@@ -1,4 +1,5 @@
 import postModel from "./post.model.js";
+import { customErrorHandler } from "../../middlewares/errorHandlerMiddleware.js";
 
 const getAllPosts=(req,res)=>{
     const posts=postModel.allPosts()
@@ -11,10 +12,7 @@ const getAllPosts=(req,res)=>{
 const postById=(req,res)=>{
     const post = postModel.postById(req.params.id)
     if(!post || post.length==0){
-        return res.status(404).json({
-            success:false,
-            message:"Post with given ID doesn't exist!"
-        })
+        throw new customErrorHandler(404,"Post with given ID doesn't exist!")
     }
     res.status(200).json({
         success:true,
@@ -26,10 +24,7 @@ const postByCredentials=(req,res)=>{
     const userId=req.user.id
     const posts=postModel.userPosts(userId)
     if(posts.length==0){
-        return res.status(404).json({
-            success:false,
-            message:"This user has no posts"
-        })
+        throw new customErrorHandler(404,"This user has no posts!")
     }
     res.status(200).json({
         success:true,
@@ -52,10 +47,7 @@ const addPost=(req,res)=>{
 const deletePost = (req,res)=>{
     const deletedPost=postModel.deletePost(req.params.id)
     if(!deletedPost || deletedPost.length==0){
-        return res.status(404).json({
-            success:false,
-            message:"Post with given ID doesn't exist!"
-        })
+        throw new customErrorHandler(404,"Post with given ID doesn't exist!")
     }
     res.status(200).json({
         success:true,
@@ -66,10 +58,7 @@ const deletePost = (req,res)=>{
 
 const updatePost=(req,res)=>{
     if(!postModel.isPostPresent(req.params.id) || postModel.isPostPresent(req.params.id).length==0){
-        return res.status(404).json({
-            success:false,
-            message:"Post with given ID doesn't exist!"
-        })
+        throw new customErrorHandler(404,"Post with given ID doesn't exist!")
     }
     let postData={}
     if (req.file){

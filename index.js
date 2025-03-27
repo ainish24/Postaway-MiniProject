@@ -4,7 +4,8 @@ import cookieParser from 'cookie-parser'
 import userRoutes from './src/modules/user/user.route.js'
 import postRoutes from './src/modules/post/post.route.js'
 import commentRoutes from './src/modules/comment/comment.route.js'
-
+import likeRoutes from './src/modules/like/like.route.js'
+import {errorHandlerMiddleware} from './src/middlewares/errorHandlerMiddleware.js'
 
 const app = express()
 dotenv.config()
@@ -17,8 +18,9 @@ app.use(cookieParser())
 app.use('/api',userRoutes)
 app.use('/api/posts',postRoutes)
 app.use('/api/comments',commentRoutes)
+app.use('/api/likes', likeRoutes)
 
-
+app.use(errorHandlerMiddleware)
 app.listen(3000, ()=>{
     console.log('Server is listening on 3000!')
 })
