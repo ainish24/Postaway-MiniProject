@@ -90,6 +90,8 @@ const updatePost=(postId,data)=>{
         }
         return post
     })
+
+    return postById(postId)
 }
 
 const deletePost=(postId)=>{
@@ -98,4 +100,18 @@ const deletePost=(postId)=>{
     return deletedPost
 }
 
-export default {newPost, allPosts, userPosts, postById, updatePost, deletePost}
+const isPostPresent=(postId)=>{
+    const isExist=POSTS.filter(post=>post.id==postId)
+    return isExist
+}
+
+const fetchUserId=(postId)=>{
+    const post=POSTS.filter(post=>post.id==postId)
+    if(!post || post.length==0){
+        return false
+    }
+    const userId=post[0].userId
+    return userId
+}
+
+export default {newPost, allPosts, userPosts, postById, updatePost, deletePost, isPostPresent, fetchUserId}

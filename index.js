@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import userRoutes from './src/modules/user/user.route.js'
 import postRoutes from './src/modules/post/post.route.js'
+import commentRoutes from './src/modules/comment/comment.route.js'
 
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(cookieParser())
 
 app.use('/api',userRoutes)
 app.use('/api/posts',postRoutes)
+app.use('/api/comments',commentRoutes)
 
 
 app.listen(3000, ()=>{
