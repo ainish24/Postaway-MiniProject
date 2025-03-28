@@ -13,7 +13,6 @@ const getAllUsers=(req,res)=>{
 const signup=(req,res)=>{
     const data = req.body
     const user=userModel.addUser(data)
-    
     res.status(201).json({
         success:true,
         data:user
