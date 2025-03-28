@@ -5,10 +5,12 @@ import { upload } from '../../middlewares/uploadMiddleware.js'
 import {verifyPostUserMiddleware} from '../../middlewares/postUserVerification.js'
 import { newPostValidator, editPostValidator, handleValidation } from '../../middlewares/validationRules.js'
 import { loggerMiddleware } from '../../middlewares/loggerMiddleware.js'
+import { paginationMiddleware } from '../../middlewares/paginationMiddleware.js'
 
 const router=express.Router()
 
 router.use(verifyToken)
+router.use(paginationMiddleware)
 
 //mention query parameter ?sort=true for sorted data 
 

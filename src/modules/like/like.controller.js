@@ -14,7 +14,7 @@ const getLikesById=(req,res)=>{
     }
     res.status(200).json({
         success:true,
-        data:likes
+        data:req.paginate(likes)
     })
 }
 
@@ -38,7 +38,7 @@ const toggleLikes=(req,res)=>{
     }
     res.status(200).json({
         success:true,
-        data:likes
+        data:req.paginate(likes)
     })
 }
 

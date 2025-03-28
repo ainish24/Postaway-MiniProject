@@ -14,7 +14,7 @@ const getComments=(req,res)=>{
     }
     res.status(200).json({
         success:true,
-        data:comments
+        data:req.paginate(comments)
     })
 }
 

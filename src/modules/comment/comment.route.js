@@ -4,6 +4,7 @@ import { verifyToken } from '../../middlewares/jwtAuth.js'
 import {verifyCommentUserMiddleware} from '../../middlewares/commentUserVerification.js'
 import { addCommentValidator, editCommentValidator, handleValidation } from '../../middlewares/validationRules.js'
 import { loggerMiddleware } from '../../middlewares/loggerMiddleware.js'
+import { paginationMiddleware } from '../../middlewares/paginationMiddleware.js'
 
 const router = express.Router()
 

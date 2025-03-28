@@ -9,12 +9,12 @@ const getAllPosts=(req,res)=>{
         const sortedPosts=postModel.sortedPosts(mergedArray)
         return res.status(200).json({
             success:true,
-            data:sortedPosts
+            data:req.paginate(sortedPosts)
         })
     }
     res.status(200).json({
         success:true,
-        data:posts
+        data:req.paginate(posts)
     })
 }
 
@@ -25,7 +25,7 @@ const postById=(req,res)=>{
     }
     res.status(200).json({
         success:true,
-        data:post
+        data:req.paginate(post)
     })
 }
 
@@ -38,7 +38,7 @@ const postByCredentials=(req,res)=>{
         }
         return res.status(200).json({
             success:true,
-            data:filteredPosts
+            data:req.paginate(filteredPosts)
         })
     }
     const userId=req.user.id
@@ -51,12 +51,12 @@ const postByCredentials=(req,res)=>{
         const sortedPosts=postModel.sortedPosts(mergedArray)
         return res.status(200).json({
             success:true,
-            data:sortedPosts
+            data:req.paginate(sortedPosts)
         })
     }
     res.status(200).json({
         success:true,
-        data:posts
+        data:req.paginate(posts)
     })
 }
 
