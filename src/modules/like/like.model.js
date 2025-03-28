@@ -1,4 +1,4 @@
-let LIKES = [
+export let LIKES = [
     { id: 1, userId: 2, postId: 1 },
     { id: 2, userId: 3, postId: 1 },
     { id: 3, userId: 4, postId: 1 },

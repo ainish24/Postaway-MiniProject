@@ -1,0 +1,38 @@
+{"level":"info","timestamp":"Fri Mar 28 2025 20:28:37 GMT+0530 (India Standard Time)","request URL":"/api/posts/all?sort=","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 20:28:44 GMT+0530 (India Standard Time)","request URL":"/api/posts/all?sort=true","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:12:37 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/4","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:12:45 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/4","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:12:46 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/4","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:12:52 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:12:55 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:05 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:09 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:11 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:13 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:14 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:15 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:16 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:17 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:14:59 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:00 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:01 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:04 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:07 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:09 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:15 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/8","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:20 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/3","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:27 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:15:30 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:16:13 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/11","body":{},"message":"Incoming Request"}
+{"level":"error","timestamp":"Fri Mar 28 2025 21:16:13 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/11","body":{},"message":"Oops! Somethimg went wrong...Try again later"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:16:16 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"error","timestamp":"Fri Mar 28 2025 21:16:16 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Oops! Somethimg went wrong...Try again later"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:16:19 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"error","timestamp":"Fri Mar 28 2025 21:16:19 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Oops! Somethimg went wrong...Try again later"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:16:33 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"error","timestamp":"Fri Mar 28 2025 21:16:33 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Oops! Somethimg went wrong...Try again later"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:16:50 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:16:54 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/11","body":{},"message":"Incoming Request"}
+{"level":"error","timestamp":"Fri Mar 28 2025 21:16:54 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/11","body":{},"message":"Post with given ID doesn't exist!"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:16:58 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Fri Mar 28 2025 21:17:01 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}

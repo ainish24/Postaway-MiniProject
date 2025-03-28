@@ -1,4 +1,4 @@
-let COMMENTS = [
+export let COMMENTS = [
     { id: 1, userId: 2, postId: 1, content: "Wow, amazing view! 🌿" },
     { id: 2, userId: 3, postId: 1, content: "Nature is so beautiful!" },
     

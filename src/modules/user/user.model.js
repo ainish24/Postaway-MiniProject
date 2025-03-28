@@ -53,4 +53,5 @@ const checkUser=(data)=>{
     return isExist
 }
 
+
 export default {getAllUsers, addUser, checkUser}
