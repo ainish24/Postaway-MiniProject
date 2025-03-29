@@ -40,3 +40,22 @@
 {"level":"info","timestamp":"Fri Mar 28 2025 22:09:30 GMT+0530 (India Standard Time)","request URL":"/api/posts/all?offset=0&limit=5","body":{},"message":"Incoming Request"}
 {"level":"info","timestamp":"Fri Mar 28 2025 22:09:48 GMT+0530 (India Standard Time)","request URL":"/api/posts/all?offset=0&limit=5&sort=true","body":{},"message":"Incoming Request"}
 {"level":"info","timestamp":"Fri Mar 28 2025 22:10:25 GMT+0530 (India Standard Time)","request URL":"/api/posts/all?offset=0&limit=5&sort=true","body":{},"message":"Incoming Request"}
+{"level":"error","timestamp":"Fri Mar 28 2025 22:40:41 GMT+0530 (India Standard Time)","request URL":"/api/docs","body":{},"message":"Not Found!"}
+{"level":"error","timestamp":"Fri Mar 28 2025 22:40:41 GMT+0530 (India Standard Time)","request URL":"/favicon.ico","body":{},"message":"Not Found!"}
+{"level":"info","timestamp":"Sat Mar 29 2025 17:22:14 GMT+0530 (India Standard Time)","request URL":"/api/signup","message":"Incoming Request"}
+{"level":"error","timestamp":"Sat Mar 29 2025 17:23:18 GMT+0530 (India Standard Time)","request URL":"/api","body":{},"message":"You must be logged in to access this resource. Please log in and try again."}
+{"level":"error","timestamp":"Sat Mar 29 2025 17:23:39 GMT+0530 (India Standard Time)","request URL":"/api","body":{},"message":"You must be logged in to access this resource. Please log in and try again."}
+{"level":"error","timestamp":"Sat Mar 29 2025 18:32:12 GMT+0530 (India Standard Time)","request URL":"/api/users","body":{},"message":"Not Found!"}
+{"level":"error","timestamp":"Sat Mar 29 2025 18:32:26 GMT+0530 (India Standard Time)","request URL":"/api/posts/all","body":{},"message":"You must be logged in to access this resource. Please log in and try again."}
+{"level":"error","timestamp":"Sat Mar 29 2025 18:33:57 GMT+0530 (India Standard Time)","request URL":"/api/posts/all","body":{},"message":"You must be logged in to access this resource. Please log in and try again."}
+{"level":"error","timestamp":"Sat Mar 29 2025 18:37:10 GMT+0530 (India Standard Time)","request URL":"/api/posts/all","body":{},"message":"You must be logged in to access this resource. Please log in and try again."}
+{"level":"info","timestamp":"Sat Mar 29 2025 18:38:54 GMT+0530 (India Standard Time)","request URL":"/api/signin","message":"Incoming Request"}
+{"level":"info","timestamp":"Sat Mar 29 2025 18:46:39 GMT+0530 (India Standard Time)","request URL":"/api/signin","message":"Incoming Request"}
+{"level":"error","timestamp":"Sat Mar 29 2025 18:46:56 GMT+0530 (India Standard Time)","request URL":"/api/posts/all","body":{},"message":"You must be logged in to access this resource. Please log in and try again."}
+{"level":"info","timestamp":"Sat Mar 29 2025 18:50:28 GMT+0530 (India Standard Time)","request URL":"/api/signin","message":"Incoming Request"}
+{"level":"error","timestamp":"Sat Mar 29 2025 19:01:38 GMT+0530 (India Standard Time)","request URL":"/api","body":{},"message":"You must be logged in to access this resource. Please log in and try again."}
+{"level":"info","timestamp":"Sat Mar 29 2025 19:16:03 GMT+0530 (India Standard Time)","request URL":"/api/signin","message":"Incoming Request"}
+{"level":"info","timestamp":"Sat Mar 29 2025 19:16:11 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Sat Mar 29 2025 19:16:14 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Sat Mar 29 2025 19:16:15 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/10","body":{},"message":"Incoming Request"}
+{"level":"info","timestamp":"Sat Mar 29 2025 19:16:20 GMT+0530 (India Standard Time)","request URL":"/api/posts/bookmarkToggle/9","body":{},"message":"Incoming Request"}

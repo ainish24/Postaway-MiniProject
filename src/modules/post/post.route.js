@@ -13,7 +13,6 @@ router.use(verifyToken)
 router.use(paginationMiddleware)
 
 //mention query parameter ?sort=true for sorted data 
-
 router.get('/', loggerMiddleware, postControllers.postByCredentials) // add ?filterCaption query to filter posts based on caption
 router.get('/all', loggerMiddleware, postControllers.getAllPosts)
 router.get('/:id', loggerMiddleware, postControllers.postById)

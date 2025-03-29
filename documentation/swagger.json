@@ -1,0 +1,828 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Postaway: Users API",
+    "description": "API for managing users and their signup/login and post related operations"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+      "name": "General",
+      "description": "General API endpoints like landing page"
+    },
+    {
+      "name": "Users",
+      "description": "All the endpoints related to user at base level like signin and signup"
+    },
+    {
+      "name": "Posts",
+      "description": "All the endpoints related to posts."
+    },
+    {
+      "name": "Comments",
+      "description": "All the endpoints related to comments."
+    },
+    {
+      "name": "Likes",
+      "description": "All the endpoints related to likes."
+    }
+  ],
+  "securityDefinitions": {
+    "JWT_Cookie": {
+      "type": "apiKey",
+      "in": "cookie",
+      "name": "token",
+      "description": "JWT token stored in cookies for authentication"
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Welcome",
+        "description": "Landing page for the postaway api",
+        "responses": {
+          "200": {
+            "description": "Welcome to Postaway-A social media API",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users",
+        "description": "Returns a list of all registered users",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succesfully returns data of all users",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/signup": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Sign Up",
+        "description": "Allows a user to sign up",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "email",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Succesfully signs up the user",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "data": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/signin": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Sign In",
+        "description": "Allows a user to sign in",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succesfully signs in the user",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "data": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Failed",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/posts": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get user-specific posts",
+        "description": "Returns posts created by the authenticated user. Can filter by caption using ?filterCaption and sort using ?sort=true.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "filterCaption",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "boolean",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched posts",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "404": {
+            "description": "No posts found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Create a new post",
+        "description": "Allows a user to create a new post, with image upload.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "caption",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "postImg",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Post created successfully",
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        }
+      }
+    },
+    "/api/posts/{id}": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get post by ID",
+        "description": "Fetch a specific post by its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post retrieved",
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Delete a post",
+        "description": "Deletes a post by ID. Only the post owner can delete it.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post deleted successfully"
+          },
+          "404": {
+            "description": "Post not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Update a post",
+        "description": "Updates the caption or image of a post.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "caption",
+            "in": "formData",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "postImg",
+            "in": "formData",
+            "type": "file",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post updated successfully",
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/posts/bookmarkToggle/{id}": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Toggle bookmark on a post",
+        "description": "Toggles the bookmark status of a post for the authenticated user.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bookmark toggled successfully"
+          },
+          "404": {
+            "description": "Post not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/posts/archiveToggle/{id}": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Toggle archive status on a post",
+        "description": "Toggles the archive status of a post for the authenticated user.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Archive status toggled successfully"
+          },
+          "404": {
+            "description": "Post not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/posts/all": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get all posts",
+        "description": "Fetch all posts available in the system.",
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved all posts",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/comments/{id}": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Get comments for a post",
+        "description": "Fetches all comments for a specific post ID.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Post ID for which comments are retrieved"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comments retrieved successfully",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          },
+          "404": {
+            "description": "Post with given ID doesn't exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Add a comment",
+        "description": "Adds a comment to a specific post.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Post ID to which comment is added"
+          },
+          {
+            "name": "comment",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Content of the comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment added successfully",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          },
+          "404": {
+            "description": "Post with given ID doesn't exist",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Delete a comment",
+        "description": "Deletes a comment by its ID. Only the comment owner can delete it.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Comment ID to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment deleted successfully"
+          },
+          "404": {
+            "description": "Comment not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Update a comment",
+        "description": "Updates a comment's content by ID.",
+        "security": [
+          {
+            "JWT_Cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Comment ID to update"
+          },
+          {
+            "name": "comment",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Updated comment content"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment updated successfully",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          },
+          "404": {
+            "description": "Comment not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/likes{postId}": {
+      "get": {
+        "tags": [
+          "Likes"
+        ],
+        "summary": "Get likes for a specific post",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID of the post to get likes for"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of likes for the post",
+            "schema": {
+              "$ref": "#/definitions/LikeResponse"
+            }
+          },
+          "404": {
+            "description": "Post not found or no likes",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/likes/toggle/{postId}": {
+      "get": {
+        "tags": [
+          "Likes"
+        ],
+        "summary": "Toggle like for a post by the logged-in user",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID of the post to like or unlike"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Like toggled successfully",
+            "schema": {
+              "$ref": "#/definitions/LikeResponse"
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "john.doe@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "$2b$12$XJWuKJ8GZfpePmJtx6I7fOJrHwlH1IFKfwv/qAY8lpm7DkhE6BQQq"
+        }
+      }
+    },
+    "Post": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "userId": {
+          "type": "integer",
+          "example": 3
+        },
+        "caption": {
+          "type": "string",
+          "example": "Sunset views from the rooftop 🌇"
+        },
+        "imageUrl": {
+          "type": "string",
+          "example": "/uploads/sunset1.jpg"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "example": "Tue Jan 28 2025 19:00:00 GMT+0530 (India Standard Time)"
+        }
+      }
+    },
+    "Comment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "userId": {
+          "type": "integer",
+          "example": 2
+        },
+        "postId": {
+          "type": "integer",
+          "example": 1
+        },
+        "content": {
+          "type": "string",
+          "example": "Wow, amazing view! 🌿"
+        }
+      }
+    },
+    "Like": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "userId": {
+          "type": "integer",
+          "example": 2
+        },
+        "postId": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "LikeResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": true
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Like"
+          }
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": false
+        },
+        "message": {
+          "type": "string",
+          "example": "Post with given ID doesn't exist!"
+        }
+      }
+    }
+  }
+}
