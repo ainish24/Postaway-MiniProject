@@ -8,6 +8,7 @@ export const verifyToken=(req,res,next)=>{
         req.user=user
         next()
     } catch (error) {
+        console.log(error.message)
         throw new customErrorHandler(401,"You must be logged in to access this resource. Please log in and try again.")
     }
 
